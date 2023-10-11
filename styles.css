@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     height: 100%; /* Make sure they always take full browser window height */
     width: 100%;
@@ -32,8 +36,10 @@ header {
 }
 
 header h1 {
-    font-size: 2.5rem; /* Adjusted size */
-    font-family: 'Roboto', sans-serif; /* Using Lato font, with sans-serif as a fallback */
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-bottom: 20px; /* Added margin to create spacing between title and nav */
 }
 
 .product {
@@ -88,4 +94,64 @@ footer {
 
 footer p {
     font-size: 0.9rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Center the navigation */
+    align-items: center;
+    padding: 10px 0; /* Added padding for additional spacing */
+}
+
+#nav-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+#nav-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#nav-menu li a:hover {
+    background-color: #4a4a4a;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.bar {
+    background-color: #ffffff;
+    height: 3px;
+    width: 25px;
+}
+
+/* Responsive nav for screens below 768px */
+
+@media only screen and (max-width: 768px) {
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background-color: #1a1a1a;
+        border-radius: 5px;
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
 }

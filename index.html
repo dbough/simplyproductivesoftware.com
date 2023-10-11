@@ -13,11 +13,24 @@
   </head>
   <body>
     <header>
-      <h1>Simply Productive Software</h1>
+        <h1>Simply Productive Software</h1>
+        <nav>
+            <div id="nav-toggle" class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#simply-todo">Simply Todo</a></li>
+                <li><a href="#simply-timezones">Simply Timezones</a></li>
+                <li><a href="#simply-pomodoro">Simply Pomodoro</a></li>
+            </ul>
+        </nav>
     </header>
+       
   
     <main>
-      <section class="product">
+      <section class="product" id="simply-todo">
         <div class="product-info">
           <h2>Simply Todo</h2>
           <p>Keep your todos organized right in your browser with our intuitive Simple Todo extension.</p>
@@ -29,7 +42,7 @@
         </div>
       </section>
 
-      <section class="product">
+      <section class="product" id="simply-timezones">
         <div class="product-info">
           <h2>Simply Timezones</h2>
           <p>Whether you're scheduling meetings with colleagues around the globe, coordinating with remote team members, or just curious about the current time in various parts of the world, this extension is your hassle-free solution.</p>
@@ -41,6 +54,7 @@
         </div>
       </section>
 
+    <section class="product" id="simply-pomodoro">
       <div class="product-info">
         <h2>Simply Pomodoro</h2>
         <p>A browser extension dedicated to enhancing your productivity by providing structured work and rest intervals. It helps users maintain focus, reduce burnout, and manage tasks effectively by signaling when to work and when to take a break.</p>
@@ -57,5 +71,23 @@
     <footer>
       <p>&copy; 2023 Simply Productive Software</p>
     </footer>
+    <script>
+        const menuToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
   </body>
 </html>
