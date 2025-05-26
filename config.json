@@ -49,7 +49,7 @@
       "id": "simply-pomodoro",
       "name": "Simply Pomodoro",
       "description": "A browser extension dedicated to enhancing your productivity by providing structured work and rest intervals. It helps users maintain focus, reduce burnout, and manage tasks effectively by signaling when to work and when to take a break using the proven Pomodoro Technique.",
-      "image": "images/simply_pomodoro_screenshot_1280.png",
+      "image": "images/simply_pomodoro_screenshot.png",
       "imageAlt": "Screenshot of Simply Pomodoro extension showing timer interface with work and break intervals",
       "status": "available",
       "links": [
