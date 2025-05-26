@@ -134,6 +134,19 @@ header h1 {
     box-shadow: var(--shadow-hover);
 }
 
+.product-info a.coming-soon {
+    background: var(--border-color);
+    color: var(--text-muted);
+    cursor: default;
+    pointer-events: none;
+}
+
+.product-info a.coming-soon:hover {
+    background: var(--border-color);
+    transform: none;
+    box-shadow: var(--shadow);
+}
+
 .product-image {
     position: relative;
 }
