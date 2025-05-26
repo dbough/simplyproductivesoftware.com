@@ -17,9 +17,11 @@ A modern, responsive website showcasing browser extensions for productivity. Bui
 ├── styles.css          # Primary stylesheet
 ├── utilities.css       # Utility classes and helper styles
 ├── script.js          # JavaScript functionality
+├── build.sh           # Development build script
 ├── config.json        # Site configuration (for future use)
 ├── images/            # Image assets and favicons
 ├── CNAME              # GitHub Pages domain configuration
+├── .gitignore         # Git ignore file
 └── README.md          # This file
 ```
 
