@@ -55,19 +55,28 @@ class SiteController {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
+                const href = anchor.getAttribute('href');
                 
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                // Handle scroll to top specifically
+                if (href === '#top') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
                     });
-
-                    // Close mobile menu after navigation
-                    const navMenu = document.getElementById('nav-menu');
-                    if (navMenu) {
-                        navMenu.classList.remove('active');
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }
+                }
+
+                // Close mobile menu after navigation
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu) {
+                    navMenu.classList.remove('active');
                 }
             });
         });
