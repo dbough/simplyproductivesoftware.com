@@ -5,6 +5,35 @@
     padding: 0;
 }
 
+/* Performance Optimizations */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Improve font rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 :root {
     --primary-color: #60a5fa;
     --primary-hover: #3b82f6;
@@ -81,6 +110,8 @@ header h1 {
     align-items: center;
     border-bottom: 1px solid var(--border-color);
     scroll-margin-top: 6rem;
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
 }
 
 .product:last-child {
@@ -114,7 +145,12 @@ header h1 {
     line-height: 1.6;
 }
 
-.product-info a {
+/* Product Actions */
+.product-actions {
+    margin-top: 1.5rem;
+}
+
+.cta-button {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -128,23 +164,29 @@ header h1 {
     transition: var(--transition);
 }
 
-.product-info a:hover {
+.cta-button:hover {
     background: var(--primary-hover);
     transform: translateY(-1px);
     box-shadow: var(--shadow-hover);
 }
 
-.product-info a.coming-soon {
-    background: var(--border-color);
-    color: var(--text-muted);
-    cursor: default;
-    pointer-events: none;
+.cta-button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
-.product-info a.coming-soon:hover {
+.coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     background: var(--border-color);
-    transform: none;
-    box-shadow: var(--shadow);
+    color: var(--text-muted);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: default;
+    pointer-events: none;
 }
 
 .product-image {
@@ -156,6 +198,12 @@ header h1 {
     height: auto;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.product-image:hover img {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
 }
 
 /* Minimalist Footer */
@@ -198,6 +246,25 @@ nav {
     font-weight: 500;
     font-size: 0.875rem;
     white-space: nowrap;
+    position: relative;
+}
+
+#nav-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+#nav-menu li a:hover::after,
+#nav-menu li a:focus::after,
+#nav-menu li a.active::after {
+    width: 80%;
 }
 
 #nav-menu li a:hover,
@@ -207,6 +274,7 @@ nav {
     color: white;
 }
 
+/* Navigation Hamburger Menu */
 .menu-icon {
     display: none;
     flex-direction: column;
@@ -215,10 +283,23 @@ nav {
     padding: 6px;
     border-radius: var(--border-radius);
     transition: var(--transition);
+    background: none;
+    border: none;
+    color: inherit;
 }
 
 .menu-icon:hover {
     background: rgba(96, 165, 250, 0.1);
+}
+
+.menu-icon:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.menu-icon:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .bar {
@@ -227,6 +308,7 @@ nav {
     width: 20px;
     border-radius: 1px;
     transition: var(--transition);
+    display: block;
 }
 
 /* Minimalist Responsive Design */
@@ -321,7 +403,7 @@ nav {
         padding: 1rem;
     }
     
-    .product-info a {
+    .product-actions .cta-button {
         padding: 0.625rem 1.25rem;
         font-size: 0.8rem;
     }
@@ -332,4 +414,16 @@ a:focus,
 button:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+/* Smooth Page Load Animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

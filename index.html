@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simply Productive Software</title>
+    <title>Simply Productive Software - Browser Extensions for Productivity</title>
+    <meta name="description" content="Discover powerful browser extensions for productivity including Simply Todo, Simply Timezones, Simply Pomodoro, and more. Streamline your workflow with our minimalist tools.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="utilities.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -15,20 +17,20 @@
   </head>
   <body>
     <header>
-        <h1>Simply Productive Software</h1>
-        <nav>
-            <div id="nav-toggle" class="menu-icon">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul id="nav-menu">
-                <li><a href="#simply-notes">Simply Notes</a></li>
-                <li><a href="#simply-todo">Simply Todo</a></li>
-                <li><a href="#simply-timezones">Simply Timezones</a></li>
-                <li><a href="#simply-pomodoro">Simply Pomodoro</a></li>
-            </ul>
-        </nav>
+      <h1>Simply Productive Software</h1>
+      <nav>
+        <button id="nav-toggle" class="menu-icon" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul id="nav-menu" role="navigation">
+          <li><a href="#simply-notes">Simply Notes</a></li>
+          <li><a href="#simply-todo">Simply Todo</a></li>
+          <li><a href="#simply-timezones">Simply Timezones</a></li>
+          <li><a href="#simply-pomodoro">Simply Pomodoro</a></li>
+        </ul>
+      </nav>
     </header>
        
   
@@ -37,16 +39,18 @@
         <div class="product-info">
           <h2>Simply Notes</h2>
           <p>Capture thoughts, ideas, and important information instantly with our minimalist note-taking extension. Keep your notes organized and easily accessible right in your browser, designed for quick capture and effortless retrieval without any distractions.</p>
-          <a href="#" class="coming-soon">
-            <span>Coming Soon</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7v10c0 5.55 3.84 10 9 10s9-4.45 9-10V7l-10-5z"/>
-              <path d="M12 22s8-4 8-10V7l-8-5"/>
-            </svg>
-          </a>
+          <div class="product-actions">
+            <span class="coming-soon">
+              <span>Coming Soon</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2L2 7v10c0 5.55 3.84 10 9 10s9-4.45 9-10V7l-10-5z"/>
+                <path d="M12 22s8-4 8-10V7l-8-5"/>
+              </svg>
+            </span>
+          </div>
         </div>
         <div class="product-image">
-          <img src="images/simply_notes_screenshot.jpeg" alt="Simply Notes extension interface">
+          <img src="images/simply_notes_screenshot.jpeg" alt="Simply Notes extension interface showing a clean note-taking interface">
         </div>
       </section>
 
@@ -54,15 +58,17 @@
         <div class="product-info">
           <h2>Simply Todo</h2>
           <p>Keep your todos organized right in your browser with our intuitive Simple Todo extension. Streamline your workflow with a clean, distraction-free interface designed for maximum productivity.</p>
-          <a href="https://chrome.google.com/webstore/detail/simply-todo/jafjjbfkceeoagbcfnkiibfmkchcicce">
-            <span>Get it on Chrome Web Store</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </a>
+          <div class="product-actions">
+            <a href="https://chrome.google.com/webstore/detail/simply-todo/jafjjbfkceeoagbcfnkiibfmkchcicce" target="_blank" rel="noopener noreferrer" class="cta-button">
+              <span>Get it on Chrome Web Store</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+          </div>
         </div>
         <div class="product-image">
-          <img src="images/simply_todo_screenshot.png" alt="Screenshot of Simply Todo extension showing task management interface">
+          <img src="images/simply_todo_screenshot.png" alt="Screenshot of Simply Todo extension showing task management interface with clean design">
         </div>
       </section>
 
@@ -70,92 +76,43 @@
         <div class="product-info">
           <h2>Simply Timezones</h2>
           <p>Whether you're scheduling meetings with colleagues around the globe, coordinating with remote team members, or just curious about the current time in various parts of the world, this extension is your hassle-free solution for global time management.</p>
-          <a href="https://chrome.google.com/webstore/detail/simply-timezones/hpgpbjglfnmbfbfgeknihofbfjahfcnl">
-            <span>Get it on Chrome Web Store</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </a>
+          <div class="product-actions">
+            <a href="https://chrome.google.com/webstore/detail/simply-timezones/hpgpbjglfnmbfbfgeknihofbfjahfcnl" target="_blank" rel="noopener noreferrer" class="cta-button">
+              <span>Get it on Chrome Web Store</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+          </div>
         </div>
         <div class="product-image">
-          <img src="images/simply_timezones_screenshot.png" alt="Screenshot of Simply Timezones extension showing multiple timezone displays">
+          <img src="images/simply_timezones_screenshot.png" alt="Screenshot of Simply Timezones extension showing multiple timezone displays in an organized layout">
         </div>
       </section>
 
-    <section class="product" id="simply-pomodoro">
-      <div class="product-info">
-        <h2>Simply Pomodoro</h2>
-        <p>A browser extension dedicated to enhancing your productivity by providing structured work and rest intervals. It helps users maintain focus, reduce burnout, and manage tasks effectively by signaling when to work and when to take a break using the proven Pomodoro Technique.</p>
-        <a href="https://chrome.google.com/webstore/detail/simply-pomodoro/ipaondnemkldgemededpanmgcmkelhdj">
-          <span>Get it on Chrome Web Store</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 17L17 7M17 7H7M17 7V17"/>
-          </svg>
-        </a>
-      </div>
-      <div class="product-image">
-        <img src="images/simply_pomodoro_screenshot_1280.png" alt="Screenshot of Simply Pomodoro extension showing timer interface">
-      </div>
-    </section>
-      <!-- Additional products can be structured similarly -->
+      <section class="product" id="simply-pomodoro">
+        <div class="product-info">
+          <h2>Simply Pomodoro</h2>
+          <p>A browser extension dedicated to enhancing your productivity by providing structured work and rest intervals. It helps users maintain focus, reduce burnout, and manage tasks effectively by signaling when to work and when to take a break using the proven Pomodoro Technique.</p>
+          <div class="product-actions">
+            <a href="https://chrome.google.com/webstore/detail/simply-pomodoro/ipaondnemkldgemededpanmgcmkelhdj" target="_blank" rel="noopener noreferrer" class="cta-button">
+              <span>Get it on Chrome Web Store</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="product-image">
+          <img src="images/simply_pomodoro_screenshot_1280.png" alt="Screenshot of Simply Pomodoro extension showing timer interface with work and break intervals">
+        </div>
+      </section>
     </main>
   
-    <footer>
+    <    <footer>
       <p>&copy; <span id="current-year"></span> Simply Productive Software. All rights reserved.</p>
-    </footer>    <script>
-        // Set current year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        const menuToggle = document.getElementById("nav-toggle");
-        const navMenu = document.getElementById("nav-menu");
-
-        menuToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Highlight active navigation item based on scroll position
-        function updateActiveNavItem() {
-            const sections = document.querySelectorAll('.product');
-            const navLinks = document.querySelectorAll('#nav-menu a[href^="#"]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                // Check if section is in viewport (accounting for header height)
-                if (rect.top <= 120 && rect.bottom >= 120) {
-                    currentSection = section.id;
-                }
-            });
-            
-            // Remove active class from all nav links
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Add active class to current section's nav link
-            if (currentSection) {
-                const activeLink = document.querySelector(`#nav-menu a[href="#${currentSection}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        }
-
-        // Update active nav item on scroll
-        window.addEventListener('scroll', updateActiveNavItem);
-        // Update on page load
-        window.addEventListener('load', updateActiveNavItem);
-    </script>
-
+    </footer>
+    
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Simply Productive Software",
+    "description": "Browser Extensions for Productivity",
+    "author": "Simply Productive Software",
+    "url": "https://simplyproductivesoftware.com"
+  },
+  "products": [
+    {
+      "id": "simply-notes",
+      "name": "Simply Notes",
+      "description": "Capture thoughts, ideas, and important information instantly with our minimalist note-taking extension. Keep your notes organized and easily accessible right in your browser, designed for quick capture and effortless retrieval without any distractions.",
+      "image": "images/simply_notes_screenshot.jpeg",
+      "imageAlt": "Simply Notes extension interface showing a clean note-taking interface",
+      "status": "coming-soon",
+      "links": []
+    },
+    {
+      "id": "simply-todo",
+      "name": "Simply Todo",
+      "description": "Keep your todos organized right in your browser with our intuitive Simple Todo extension. Streamline your workflow with a clean, distraction-free interface designed for maximum productivity.",
+      "image": "images/simply_todo_screenshot.png",
+      "imageAlt": "Screenshot of Simply Todo extension showing task management interface with clean design",
+      "status": "available",
+      "links": [
+        {
+          "type": "chrome-store",
+          "url": "https://chrome.google.com/webstore/detail/simply-todo/jafjjbfkceeoagbcfnkiibfmkchcicce",
+          "text": "Get it on Chrome Web Store"
+        }
+      ]
+    },
+    {
+      "id": "simply-timezones",
+      "name": "Simply Timezones",
+      "description": "Whether you're scheduling meetings with colleagues around the globe, coordinating with remote team members, or just curious about the current time in various parts of the world, this extension is your hassle-free solution for global time management.",
+      "image": "images/simply_timezones_screenshot.png",
+      "imageAlt": "Screenshot of Simply Timezones extension showing multiple timezone displays in an organized layout",
+      "status": "available",
+      "links": [
+        {
+          "type": "chrome-store",
+          "url": "https://chrome.google.com/webstore/detail/simply-timezones/hpgpbjglfnmbfbfgeknihofbfjahfcnl",
+          "text": "Get it on Chrome Web Store"
+        }
+      ]
+    },
+    {
+      "id": "simply-pomodoro",
+      "name": "Simply Pomodoro",
+      "description": "A browser extension dedicated to enhancing your productivity by providing structured work and rest intervals. It helps users maintain focus, reduce burnout, and manage tasks effectively by signaling when to work and when to take a break using the proven Pomodoro Technique.",
+      "image": "images/simply_pomodoro_screenshot_1280.png",
+      "imageAlt": "Screenshot of Simply Pomodoro extension showing timer interface with work and break intervals",
+      "status": "available",
+      "links": [
+        {
+          "type": "chrome-store",
+          "url": "https://chrome.google.com/webstore/detail/simply-pomodoro/ipaondnemkldgemededpanmgcmkelhdj",
+          "text": "Get it on Chrome Web Store"
+        }
+      ]
+    }
+  ],
+  "navigation": [
+    { "text": "Simply Notes", "href": "#simply-notes" },
+    { "text": "Simply Todo", "href": "#simply-todo" },
+    { "text": "Simply Timezones", "href": "#simply-timezones" },
+    { "text": "Simply Pomodoro", "href": "#simply-pomodoro" }
+  ]
+}
