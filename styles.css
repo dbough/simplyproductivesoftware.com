@@ -1,157 +1,321 @@
-/* Resets and Basics */
+/* Modern Reset and Base Styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+:root {
+    --primary-color: #60a5fa;
+    --primary-hover: #3b82f6;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --border-radius: 8px;
+    --transition: all 0.2s ease;
+}
+
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
 }
 
 html, body {
-    height: 100%; /* Make sure they always take full browser window height */
+    height: 100%;
     width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll if not needed */
-    font-family: Arial, sans-serif; /* Simple, clean font */
-    background-color: #2c2c2c;
-    color: #ffffff;
+    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
     display: flex;
     flex-direction: column;
 }
 
+/* Layout Components */
 header, main, footer {
-    flex: 0 0 auto; /* Prevent them from growing/shrinking inappropriately */
+    flex: 0 0 auto;
 }
 
 main {
-    flex: 1 0 auto; /* Allow main to grow and take available space */
-    padding: 5%;
+    flex: 1 0 auto;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
+/* Compact Header */
 header {
-    background-color: #1a1a1a;
-    padding: 20px 5%;
-    text-align: center;
+    background: var(--background);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    margin-bottom: 20px; /* Added margin to create spacing between title and nav */
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.025em;
 }
 
+/* Minimalist Product Cards */
 .product {
-    margin-bottom: 50px;
-    border-bottom: 1px solid #444;
-    padding-bottom: 20px;
-    text-align: left; /* Aligning the content to the left */
+    margin: 3rem 2rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    scroll-margin-top: 6rem;
 }
 
-.product-info {
-    margin-bottom: 20px; /* Add spacing between info and image */
+.product:last-child {
+    border-bottom: none;
+}
+
+.product:nth-child(even) {
+    grid-template-columns: 1fr 1fr;
+}
+
+.product:nth-child(even) .product-info {
+    order: 2;
+}
+
+.product:nth-child(even) .product-image {
+    order: 1;
 }
 
 .product-info h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    font-family: 'Roboto', sans-serif; /* Using Lato font, with sans-serif as a fallback */
-
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
 }
 
 .product-info p {
     font-size: 1rem;
-    margin-bottom: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .product-info a {
-    display: inline-block;
-    background-color: #3a3a3a;
-    color: #ffffff;
-    padding: 10px 15px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
     text-decoration: none;
-    transition: background-color 0.3s;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: var(--transition);
 }
 
 .product-info a:hover {
-    background-color: #4a4a4a;
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-image {
+    position: relative;
 }
 
 .product-image img {
-    width: 100%; /* This will make the image scale with the page */
-    max-width: 800px; /* You can adjust this to set a maximum size */
-    display: block;
-    margin: 20px auto; /* Keep the image centered horizontally, with some vertical spacing */
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
+/* Minimalist Footer */
 footer {
-    background-color: #1a1a1a;
-    padding: 15px 5%;
+    background: var(--surface);
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem 5%;
     text-align: center;
+    margin-top: 3rem;
 }
 
 footer p {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
 }
 
+/* Clean Navigation */
 nav {
     display: flex;
-    justify-content: center; /* Center the navigation */
     align-items: center;
-    padding: 10px 0; /* Added padding for additional spacing */
+    position: relative;
 }
 
 #nav-menu {
     list-style-type: none;
     display: flex;
-    gap: 15px;
+    gap: 0;
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    padding: 0.25rem;
+    border: 1px solid var(--border-color);
 }
 
 #nav-menu li a {
-    color: #ffffff;
+    color: var(--text-secondary);
     text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: calc(var(--border-radius) - 2px);
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.875rem;
 }
 
-#nav-menu li a:hover {
-    background-color: #4a4a4a;
+#nav-menu li a:hover,
+#nav-menu li a:focus,
+#nav-menu li a.active {
+    background: var(--primary-color);
+    color: white;
 }
 
 .menu-icon {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
     cursor: pointer;
+    padding: 6px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.menu-icon:hover {
+    background: rgba(96, 165, 250, 0.1);
 }
 
 .bar {
-    background-color: #ffffff;
-    height: 3px;
-    width: 25px;
+    background: var(--text-primary);
+    height: 2px;
+    width: 20px;
+    border-radius: 1px;
+    transition: var(--transition);
 }
 
-/* Responsive nav for screens below 768px */
-
+/* Minimalist Responsive Design */
 @media only screen and (max-width: 768px) {
+    main {
+        padding: 0 1rem;
+    }
+    
+    .product {
+        grid-template-columns: 1fr;
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .product:nth-child(even) .product-info {
+        order: 1;
+    }
+    
+    .product:nth-child(even) .product-image {
+        order: 2;
+    }
+    
+    header {
+        padding: 0.75rem 5%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    nav {
+        position: relative;
+    }
+    
     #nav-menu {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
-        right: 5%;
-        background-color: #1a1a1a;
-        border-radius: 5px;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--surface);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-hover);
+        padding: 0.75rem;
+        gap: 0.5rem;
+        min-width: 200px;
+        white-space: nowrap;
+        z-index: 100;
     }
 
     #nav-menu.active {
         display: flex;
     }
+    
+    #nav-menu li a {
+        padding: 0.5rem 0;
+        border-radius: 0;
+        background: none;
+        color: var(--text-secondary);
+        border-bottom: 1px solid transparent;
+    }
+    
+    #nav-menu li a:hover,
+    #nav-menu li a:focus,
+    #nav-menu li a.active {
+        background: none;
+        color: var(--primary-color);
+        border-bottom-color: var(--primary-color);
+    }
 
     .menu-icon {
         display: flex;
     }
+    
+    .product-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    .product-info p {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header {
+        padding: 0.5rem 5%;
+    }
+    
+    .product {
+        margin: 1.5rem 0.5rem;
+        padding: 1rem;
+    }
+    
+    .product-info a {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Clean Focus States */
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
