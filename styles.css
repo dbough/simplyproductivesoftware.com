@@ -197,6 +197,7 @@ nav {
     transition: var(--transition);
     font-weight: 500;
     font-size: 0.875rem;
+    white-space: nowrap;
 }
 
 #nav-menu li a:hover,
@@ -229,7 +230,7 @@ nav {
 }
 
 /* Minimalist Responsive Design */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
     main {
         padding: 0 1rem;
     }
