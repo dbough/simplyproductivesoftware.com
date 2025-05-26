@@ -56,21 +56,13 @@ class SiteController {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
                 const href = anchor.getAttribute('href');
+                const target = document.querySelector(href);
                 
-                // Handle scroll to top specifically
-                if (href === '#top') {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                } else {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
                 }
 
                 // Close mobile menu after navigation
