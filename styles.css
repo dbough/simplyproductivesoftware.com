@@ -182,7 +182,7 @@ nav {
 #nav-menu {
     list-style-type: none;
     display: flex;
-    gap: 0;
+    gap: 0.25rem;
     background: var(--surface);
     border-radius: var(--border-radius);
     padding: 0.25rem;
