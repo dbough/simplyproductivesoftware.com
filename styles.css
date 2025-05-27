@@ -343,6 +343,10 @@ nav {
         gap: 1.5rem;
     }
     
+    .product:nth-child(even) {
+        grid-template-columns: 1fr;
+    }
+    
     .product:nth-child(even) .product-info {
         order: 1;
     }
