@@ -12,8 +12,13 @@
       "description": "Capture thoughts, ideas, and important information instantly with our minimalist note-taking extension. Keep your notes organized and easily accessible right in your browser, designed for quick capture and effortless retrieval without any distractions.",
       "image": "images/simply_notes_screenshot.jpeg",
       "imageAlt": "Simply Notes extension interface showing a clean note-taking interface",
-      "status": "coming-soon",
-      "links": []
+      "status": "available",
+      "links": [
+        {
+          "type": "chrome-store",
+          "url": "https://chromewebstore.google.com/detail/simply-notes/mkhhaekaoneilcbmcfhiagegfadagnkb",
+          "text": "Get it on Chrome Web Store"
+      ]
     },
     {
       "id": "simply-todo",
