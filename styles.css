@@ -476,6 +476,9 @@ button:focus {
     overflow: hidden;
     transform: scale(0.9);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .image-modal.active .modal-content {
@@ -484,25 +487,28 @@ button:focus {
 
 .modal-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(0, 0, 0, 0.7);
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
     transition: var(--transition);
     z-index: 10001;
+    opacity: 0.4;
 }
 
 .modal-close:hover {
-    background: rgba(0, 0, 0, 0.9);
-    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 .modal-close:focus {
@@ -522,6 +528,9 @@ button:focus {
     padding: 1.5rem;
     background: var(--surface);
     border-top: 1px solid var(--border-color);
+    width: 100%;
+    box-sizing: border-box;
+    align-self: stretch;
 }
 
 .modal-info h3 {
@@ -529,12 +538,15 @@ button:focus {
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
+    text-align: left;
 }
 
 .modal-info p {
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.5;
+    text-align: left;
+    margin: 0;
 }
 
 /* Make product images clickable */
@@ -554,6 +566,14 @@ button:focus {
         max-width: 95vw;
         max-height: 95vh;
         margin: 1rem;
+    }
+    
+    .modal-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 28px;
+        height: 28px;
+        opacity: 0.3;
     }
     
     #modal-image {

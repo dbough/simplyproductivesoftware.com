@@ -193,6 +193,15 @@ class SiteController {
         modal.addEventListener('wheel', (e) => {
             e.preventDefault();
         });
+
+        // Handle window resize to maintain text alignment
+        window.addEventListener('resize', () => {
+            if (modal.classList.contains('active')) {
+                const modalInfo = modal.querySelector('.modal-info');
+                const imageWidth = modalImage.offsetWidth;
+                modalInfo.style.width = `${imageWidth}px`;
+            }
+        });
     }
 
     /**
@@ -208,7 +217,7 @@ class SiteController {
         modalImage.src = clickedImg.src;
         modalImage.alt = clickedImg.alt;
         modalTitle.textContent = productName;
-        modalDescription.textContent = clickedImg.alt;
+        modalDescription.textContent = productDesc;
 
         // Show modal
         modal.classList.add('active');
@@ -216,6 +225,13 @@ class SiteController {
         
         // Prevent body scroll
         document.body.style.overflow = 'hidden';
+        
+        // Constrain modal info width to image width after image loads
+        modalImage.onload = () => {
+            const modalInfo = modal.querySelector('.modal-info');
+            const imageWidth = modalImage.offsetWidth;
+            modalInfo.style.width = `${imageWidth}px`;
+        };
         
         // Focus management for accessibility
         setTimeout(() => {
