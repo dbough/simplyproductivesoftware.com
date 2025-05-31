@@ -14,6 +14,7 @@ class SiteController {
         this.setupSmoothScrolling();
         this.setupScrollSpy();
         this.setupImageLazyLoading();
+        this.setupImageModal();
         this.setupAnalytics();
     }
 
@@ -138,6 +139,116 @@ class SiteController {
                 imageObserver.observe(img);
             });
         }
+    }
+
+    /**
+     * Sets up image modal/lightbox functionality
+     */
+    setupImageModal() {
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalClose = modal.querySelector('.modal-close');
+        const modalBackdrop = modal.querySelector('.modal-backdrop');
+
+        if (!modal || !modalImage || !modalTitle || !modalDescription) return;
+
+        // Add click handlers to all product images
+        document.querySelectorAll('.product-image img').forEach(img => {
+            img.addEventListener('click', () => {
+                this.openImageModal(img, modal, modalImage, modalTitle, modalDescription);
+            });
+
+            // Add keyboard support for accessibility
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            img.setAttribute('aria-label', 'Click to view larger image');
+            
+            img.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.openImageModal(img, modal, modalImage, modalTitle, modalDescription);
+                }
+            });
+        });
+
+        // Close modal handlers
+        modalClose.addEventListener('click', () => {
+            this.closeImageModal(modal);
+        });
+
+        modalBackdrop.addEventListener('click', () => {
+            this.closeImageModal(modal);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                this.closeImageModal(modal);
+            }
+        });
+
+        // Prevent scroll when modal is open
+        modal.addEventListener('wheel', (e) => {
+            e.preventDefault();
+        });
+    }
+
+    /**
+     * Opens the image modal with the clicked image
+     */
+    openImageModal(clickedImg, modal, modalImage, modalTitle, modalDescription) {
+        // Get product information
+        const productSection = clickedImg.closest('.product');
+        const productName = productSection.querySelector('h2').textContent;
+        const productDesc = productSection.querySelector('p').textContent;
+
+        // Set modal content
+        modalImage.src = clickedImg.src;
+        modalImage.alt = clickedImg.alt;
+        modalTitle.textContent = productName;
+        modalDescription.textContent = clickedImg.alt;
+
+        // Show modal
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+        
+        // Focus management for accessibility
+        setTimeout(() => {
+            modal.querySelector('.modal-close').focus();
+        }, 300);
+
+        // Track event
+        this.trackEvent('image_modal_open', { product: productName });
+    }
+
+    /**
+     * Closes the image modal
+     */
+    closeImageModal(modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+        
+        // Return focus to the trigger element if possible
+        setTimeout(() => {
+            const activeElement = document.activeElement;
+            if (activeElement && activeElement.closest('.image-modal')) {
+                // Focus was in modal, return to first product image
+                const firstProductImage = document.querySelector('.product-image img');
+                if (firstProductImage) {
+                    firstProductImage.focus();
+                }
+            }
+        }, 100);
+
+        this.trackEvent('image_modal_close');
     }
 
     /**
