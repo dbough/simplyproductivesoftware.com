@@ -224,14 +224,77 @@ header h1 {
 footer {
     background: var(--surface);
     border-top: 1px solid var(--border-color);
-    padding: 1.5rem 5%;
+    padding: 1rem 5%;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 footer p {
     font-size: 0.875rem;
     color: var(--text-muted);
+}
+
+/* Footer Contact Section */
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-section {
+    margin-bottom: 1rem;
+}
+
+.contact-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.contact-section p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.contact-button:hover,
+.contact-button:focus {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-button svg {
+    transition: var(--transition);
+}
+
+.contact-button:hover svg {
+    transform: translateX(2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
 }
 
 /* Clean Navigation */
