@@ -243,7 +243,7 @@ nav {
 
 #nav-menu {
     list-style-type: none;
-    display: flex;
+    display: none;
     gap: 0.25rem;
     background: var(--surface);
     border-radius: var(--border-radius);
@@ -290,7 +290,7 @@ nav {
 
 /* Navigation Hamburger Menu */
 .menu-icon {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 3px;
     cursor: pointer;
@@ -373,11 +373,51 @@ nav {
         box-shadow: var(--shadow-hover);
         padding: 0.75rem;
         gap: 0.5rem;
-        min-width: 200px;
+        min-width: 250px;
         white-space: nowrap;
         z-index: 100;
     }
 
+    #nav-menu.active {
+        display: flex;
+    }
+    
+    #nav-menu li a {
+        padding: 0.5rem 0;
+        border-radius: 0;
+        background: none;
+        color: var(--text-secondary);
+        border-bottom: 1px solid transparent;
+    }
+    
+    #nav-menu li a:hover,
+    #nav-menu li a:focus,
+    #nav-menu li a.active {
+        background: none;
+        color: var(--primary-color);
+        border-bottom-color: var(--primary-color);
+    }
+}
+
+/* Desktop navigation also uses dropdown style */
+@media only screen and (min-width: 901px) {
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--surface);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-hover);
+        padding: 0.75rem;
+        gap: 0.5rem;
+        min-width: 250px;
+        white-space: nowrap;
+        z-index: 100;
+    }
+    
     #nav-menu.active {
         display: flex;
     }
