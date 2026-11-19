@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WVSKYX7V4V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WVSKYX7V4V');
+    </script>
+
+    <title>Job Search System for Claude (beta) - Simply Productive Software</title>
+    <meta name="description" content="Beta instructions for the Job Search System plugin for Claude: how to install it, what to turn on first, and how to send feedback.">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/utilities.css">
+    <link rel="stylesheet" href="/job-search-system/guide.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  </head>
+  <body>
+    <header>
+      <h1><a href="/" class="site-title">Simply Productive Software</a></h1>
+    </header>
+
+    <main>
+      <article class="guide">
+        <h2>Job Search System for Claude <span class="badge">Beta</span></h2>
+        <p class="lead">A plugin that builds your career profile, drafts a tailored resume and cover letter for a job you choose, checks the draft against facts you confirmed, and keeps a tracker of your applications in your own Google Drive.</p>
+        <p class="version">These instructions were written for version 0.2.4.</p>
+
+        <h3>What it does and does not do</h3>
+        <ul>
+          <li>You give it a job posting. It drafts a resume and cover letter from facts you have confirmed.</li>
+          <li>It never submits an application, sends an email or fills in a form. You edit the drafts and apply yourself.</li>
+          <li>It does not tell you whether a job is right for you. You choose the jobs.</li>
+          <li>Your information stays in your own Google Drive. Nothing personal is stored in the plugin.</li>
+        </ul>
+
+        <h3>Before you start</h3>
+        <ul>
+          <li>A Claude account. A free account worked in testing.</li>
+          <li>The Google Drive and Google Sheets connectors turned on in Claude. The plugin creates folders and a tracker sheet in your Drive, so it cannot work without them.</li>
+          <li>Your resumes or career notes, and about an hour for setup. You can stop after any step and pick up later.</li>
+        </ul>
+
+        <h3>Install</h3>
+        <ol>
+          <li>In Claude on the web or the desktop app, open <strong>Customize</strong>, then <strong>Plugins</strong>, then <strong>Add</strong>, then <strong>Add marketplace</strong>.</li>
+          <li>Enter <code>Simply-Productive-Software/simply-productive-software</code>. You do not need a GitHub account.</li>
+          <li>Find <strong>Job Search System</strong> in the list and install it.</li>
+        </ol>
+        <p>Using Claude Code instead? Run these two commands:</p>
+        <pre><code>/plugin marketplace add Simply-Productive-Software/simply-productive-software
+/plugin install job-search-system@simply-productive-software</code></pre>
+
+        <h3>Set it up</h3>
+        <ol>
+          <li>Start a new chat and say: <em>Set up the job search system.</em></li>
+          <li>Claude shows the terms and asks you to confirm you understand them before it creates anything.</li>
+          <li>It creates a folder in your Google Drive with a Profile folder, an Applications folder and a tracker sheet, then walks you through your career facts, what you want, your writing voice and your output settings.</li>
+          <li>You confirm each fact. Drafts use only facts you have confirmed.</li>
+        </ol>
+
+        <h3>Use it</h3>
+        <ol>
+          <li>Paste a job posting or link and ask for a resume and cover letter.</li>
+          <li>Claude drafts them, has the draft checked, and saves the files to your Applications folder. The job gets a row in your tracker.</li>
+          <li>Read the drafts and edit them. Check every claim before you send anything.</li>
+          <li>Apply yourself on the employer's site. Then tell Claude you applied, skipped the job or parked it, and it updates the tracker.</li>
+        </ol>
+
+        <h3>Updates</h3>
+        <p>The plugin does not always update on its own. To get a new version, open <strong>Customize</strong>, then <strong>Plugins</strong>, then <strong>Add</strong>, then <strong>Manage marketplaces</strong>, open the menu on the marketplace and choose <strong>Check for updates</strong>.</p>
+
+        <h3>Good to know</h3>
+        <ul>
+          <li>This is an early beta. Things may change or break.</li>
+          <li>It is provided as is, and you use it at your own risk. AI output can be wrong, so check everything it writes.</li>
+          <li>You can use it free for your own job search. The license does not allow copying, redistributing or selling it.</li>
+        </ul>
+
+        <div class="feedback">
+          <h3>Send feedback</h3>
+          <p>Something broke, confused you or is missing? Tell us. It helps most when you say what you asked Claude and what happened.</p>
+          <a href="https://forms.gle/tAwhV6Erwkt5Ff3S8" target="_blank" rel="noopener noreferrer" class="cta-button">
+            <span>Open the feedback form</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="contact-section">
+          <h3>Get in Touch</h3>
+          <p>Have questions or feedback? We'd love to hear from you!</p>
+          <a href="mailto:hello@simplyproductivesoftware.com" class="contact-button">
+            <span>hello@simplyproductivesoftware.com</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="current-year"></span> Simply Productive Software. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    
+    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
